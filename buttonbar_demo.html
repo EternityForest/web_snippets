@@ -1,0 +1,98 @@
+<style>
+    .buttonbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        border-radius: 12px;
+    }
+
+    .buttonbar label {
+        display: flex;
+    }
+
+    .buttonbar a,
+    .buttonbar button,
+    .buttonbar input,
+    .buttonbar p {
+        background-image: linear-gradient(175deg, rgba(255, 255, 255, 0.247), rgba(0, 0, 0, 0.151));
+        margin-left: 0px;
+        margin-right: 0px;
+        align-items: stretch;
+        text-align: left;
+        display: block;
+        border-radius: 0px;
+        padding: 4px;
+        border: 1px solid rgba(0, 0, 0, 0.062);
+    }
+
+    .buttonbar button,
+    .buttonbar input,
+
+
+    .buttonbar a, .buttonbar p {
+        border: 1px solid rgba(136, 149, 190, 0.767);
+        margin-top: 1px;
+        margin-bottom: 1px;        
+        vertical-align: middle;
+
+    }
+
+    .buttonbar>img {
+        height: 100%;
+    }
+
+
+
+    .buttonbar>a:first-child,
+    .buttonbar>button:first-child,
+    .buttonbar>input:first-child,
+    .buttonbar>p:first-child,
+    .buttonbar> :first-child:first-child {
+        border-radius: 12px 0px 0px 12px;
+    }
+
+    .buttonbar>a:last-child,
+    .buttonbar>button:last-child,
+    .buttonbar>input:last-child,
+    .buttonbar>p:last-child,
+    .buttonbar>:last-child:last-child {
+        border-radius: 0px 12px 12px 0px;
+    }
+
+    .buttonbar>a:first-child:last-child,
+    .buttonbar>button:first-child:last-child,
+    .buttonbar>input:first-child:last-child,
+    .buttonbar>p:first-child:last-child {
+        border-radius: 12px 12px 12px 12px;
+    }
+
+    /*A button link while being clicked*/
+
+    .buttonbar button:active {
+        background-image: linear-gradient(40deg, rgba(255, 255, 255, 0.247), rgba(0, 0, 0, 0.151));
+
+        border-style: inset;
+    }
+</style>
+
+
+
+<style>
+    .buttonbar a,
+    .buttonbar button,
+    .buttonbar p,
+    .buttonbar a.button,
+    .buttonbar input {
+        border: 1px solid rgba(136, 149, 190, 0.767);
+        box-shadow: 2px 2px 6px -1px rgba(0, 0, 0, 0.308)
+    }
+
+</style>
+
+<div class="buttonbar">
+    <p>Text</p>
+    <input>
+    <p>More text</p>
+    <a href="link">A link</a>
+    <button>A button</button>
+</div>
