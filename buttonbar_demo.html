@@ -16,20 +16,25 @@
 	align-items: stretch;
 	border-radius: 12px;
 	min-height: 28px;
-	margin: 2px;
+	margin: 4px;
 	flex-grow: 1;
 	vertical-align: middle;
 	height: fit-content;
     align-items: center;
     align-content: center;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(1px);
+    width: 100%;
+    box-sizing: border-box;
 	--buttonbar-element-border:  1px solid rgba(136, 149, 190, 0.767);
-	--buttonbar-item-bg:  linear-gradient(179deg,rgba(255, 255, 255, 0.247),rgba(0, 0, 0, 0.151));
-    --buttonbar-concave-item-bg:  linear-gradient(179deg,rgba(0, 0, 0, 0.068),rgba(231, 231, 231, 0.6));
-    --buttonbar-convex-item-bg:  linear-gradient(179deg,rgba(230, 230, 230, 0.6),rgba(0, 0, 0, 0.068));
+    --buttonbar-concave-item-bg: linear-gradient(180deg, rgb(37 37 37 / 9%) 12%, rgb(255 255 255 / 42%) 88%);
+    --buttonbar-convex-item-bg:  linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.096) 96%);
     --buttonbar-active-item-bg :linear-gradient(40deg, rgba(153, 134, 134, 0.13), rgba(0, 0, 0, 0.200));
+
 }
 
+.multibar .buttonbar{
+    width: unset;
+}
 .buttonbar img
 {
 	display: inline;
@@ -48,7 +53,6 @@
 	flex-grow: 50;
 	border: 0px;
 }
-
 .buttonbar  *{
 	box-sizing: border-box;
 	height: 100%;
@@ -85,6 +89,7 @@
 .buttonbar :is(h1,h2,h3,h4,h5) *{
 border: none;
 }
+
 .buttonbar :is(h1,h2,h3,h4,h5,h6,label){
 	margin: 0px;
 	padding: 0px;
@@ -109,7 +114,7 @@ flex-grow: 1;
 flex-grow: 50;
 }
 
-.buttonbar select, .buttonbar button, .buttonbar a.button{
+.buttonbar select, .buttonbar button, .buttonbar a, .buttonbar input[type=submit]{
     background: var(--buttonbar-convex-item-bg);
 }
 
@@ -138,16 +143,15 @@ padding: 0px;
 /*Exception: the first item always growable so it can be the title*/
 .buttonbar :is(h1,h2,h3,h4,h5,h6):first-child{
 	flex-grow: 50;
-	display: block;
 }
 
 
-.buttonbar > :is(a,a.button,select,p, h1,h2,h3,h4,h5,h6,label, input, meter,button):first-child, .buttonbar  :is(a,a.button,select,p, h1,h2,h3,h4,h5,h6, input, meter,button,form,label):first-child :first-child
+.buttonbar > :is(a,a.button,select,p, h1,h2,h3,h4,h5,h6,label, input, meter,button):first-child, .buttonbar  :is(a,a.button,select,p, h1,h2,h3,h4,h5,h6, input, meter,button,form):first-child :first-child
 { 
 	border-radius: 12px 0px 0px 12px;
 }
 
-.buttonbar > :is(a,a.button,select,p, h1,h2,h3,h4,h5,h6,label, input, meter,button):last-child, .buttonbar  :is(a,a.button,select,p, h1,h2,h3,h4,h5,h6,label, input, meter,button,form):last-child :last-child
+.buttonbar > :is(a,a.button,select,p, h1,h2,h3,h4,h5,h6,label, input, meter,button):last-child, .buttonbar  :is(a,a.button,select,p, h1,h2,h3,h4,h5,h6, input, meter,button,form):last-child :last-child
 {
 	border-radius: 0px 12px 12px 0px;
 }
@@ -171,15 +175,32 @@ padding: 0px;
 	border-radius: 12px;
 }
 
-.buttonbar > *
+/*The boder puts an ugly white line on the meter*/
+.buttonbar > *:not(meter)
 {
 	border: var(--buttonbar-element-border);
-	background: var(--buttonbar-item-bg);
+	background: var( --buttonbar-convex-item-bg);
+}
+
+.buttonbar meter{
+	background: var( --buttonbar-convex-item-bg);
 }
 
 .buttonbar  input:not([type="submit"])
 {
-	border: var(--buttonbar-element-border) !important;
+	border: var(--buttonbar-element-border);
+	background: var(--buttonbar-concave-item-bg);
+	box-shadow: inset 0px 0px 4px 2px #3838383b
+}
+
+.buttonbar label input:not([type="submit"])
+{
+	border-top: 3px solid !important;
+    border-bottom: 3px solid !important;
+    border-left: var(--buttonbar-element-border) !important;
+    border-right: var(--buttonbar-element-border) !important;
+
+    border-color: rgba(170, 170, 170, 0.445) !important;
 	background: var(--buttonbar-concave-item-bg);
 }
 
@@ -194,7 +215,10 @@ padding: 0px;
     border-bottom:  var(--buttonbar-element-border);
     align-items: center;
 }
-    
+  
+.buttonbar select{
+    background: none;
+}
 
 </style>
 
@@ -233,9 +257,9 @@ padding: 0px;
 </div>
 
 <p>
-    This is a demo of a CSS snippet to make all-in-one UI buttons reminiscent of early 2000s mac UI using semantic HTML.
-    The bar is fully responsive.  The edge rounding may look slightly ugly on mobile, buy it will work and is good enough to not be distracting
-    on a desktop-first app.
+    This is a demo of a CSS snippet to make all-in-one UI buttons reminiscent of early 2000s mac UI using semantic HTML.  Try viewing this in 
+	a narrow window!
 </p>
+
 
 </div>
